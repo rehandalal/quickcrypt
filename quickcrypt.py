@@ -6,16 +6,9 @@ import sys
 from getpass import getpass
 
 
-PREFIXES = {
-    1: [1, 4, 7, "a", "d"],
-    2: [2, 5, 8, "b", "e"],
-    3: [3, 6, 9, "c", "f"],
-}
-
-
 def hexify(num):
     hx = str(hex(num))[2:]
-    prefix = random.choice(PREFIXES[len(hx)])
+    prefix = str(hex(len(hx) + (random.randint(0, 4) * 3)))[2:]
     return f"{prefix}{hx}"
 
 
