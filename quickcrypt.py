@@ -8,7 +8,9 @@ from getpass import getpass
 
 def hexify(num):
     hx = str(hex(num))[2:]
-    prefix = str(hex(len(hx) + (random.randint(0, 4) * 3)))[2:]
+    hl = random.randint(len(hx), 3)
+    hx = hx.rjust(hl, "0")
+    prefix = str(hex(hl + (random.randint(0, 4) * 3)))[2:]
     return f"{prefix}{hx}"
 
 
